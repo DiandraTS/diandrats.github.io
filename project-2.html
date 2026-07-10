@@ -120,7 +120,6 @@
   </div>
 </footer>
 
-<!-- ══════════ LIGHTBOX MARKUP ══════════ -->
 <div class="lightbox-overlay" id="lightbox">
   <button class="lightbox-arrow prev" id="lightboxPrev" aria-label="Foto sebelumnya">‹</button>
   <div class="lightbox-content">
@@ -132,14 +131,12 @@
 </div>
 
 <script>
-  // Efek Animasi Fade-in saat scroll
   const observer = new IntersectionObserver(
     entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); }),
     { threshold: 0.1 }
   );
   document.querySelectorAll('.fade').forEach(el => observer.observe(el));
 
-  // Efek Transparansi Navbar saat scroll
   const navbar = document.querySelector('.navbar');
   window.addEventListener('scroll', () => {
     navbar.style.background = window.scrollY > 60
@@ -147,7 +144,6 @@
       : 'rgba(248,244,238,0.80)';
   });
 
-  // ══════════ HAMBURGER MENU (mobile) ══════════
   const navToggle = document.querySelector('.nav-toggle');
   navToggle.addEventListener('click', () => {
     const isOpen = navbar.classList.toggle('nav-open');
@@ -160,7 +156,6 @@
     });
   });
 
-  // ══════════ LIGHTBOX (dengan navigasi prev/next & keyboard) ══════════
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxCaption = document.getElementById('lightboxCaption');
