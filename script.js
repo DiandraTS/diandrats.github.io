@@ -1,4 +1,3 @@
-// ── Intersection Observer untuk fade animations ──
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach(entry => {
@@ -12,7 +11,6 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll(".fade").forEach(el => observer.observe(el));
 
-// ── Skill bar animation ──
 const barObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach(entry => {
@@ -30,7 +28,6 @@ const barObserver = new IntersectionObserver(
 const skillsCol = document.querySelector(".skill-bar-list");
 if (skillsCol) barObserver.observe(skillsCol);
 
-// ── Navbar scroll effect ──
 const navbar = document.querySelector(".navbar");
 
 if (navbar) {
@@ -45,7 +42,6 @@ if (navbar) {
   });
 }
 
-// ── Hamburger menu toggle (mobile) ──
 const navToggle = document.querySelector(".nav-toggle");
 const navLinksList = document.querySelector(".nav-links");
 
@@ -55,7 +51,6 @@ if (navToggle && navbar) {
     navToggle.setAttribute("aria-expanded", isOpen);
   });
 
-  // tutup menu saat salah satu link diklik
   navLinksList.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       navbar.classList.remove("nav-open");
