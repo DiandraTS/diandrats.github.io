@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-    /* ===== STYLE HAMBURGER BUTTON & RESPONSIVE NAV ===== */
     .nav-toggle {
       display: none;
       background: none;
@@ -17,7 +16,7 @@
       padding: 4px;
       flex-direction: column;
       gap: 6px;
-      z-index: 1002; /* Berada di atas menu drawer */
+      z-index: 1002;
     }
     .nav-toggle span {
       display: block;
@@ -27,7 +26,6 @@
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    /* Animasi Hamburger Menjadi (X) saat menu terbuka */
     .navbar.nav-open .nav-toggle span:nth-child(1) {
       transform: translateY(8px) rotate(45deg);
     }
@@ -38,14 +36,12 @@
       transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* ===== RESPONSIVE MOBILE VIEW ===== */
     @media (max-width: 860px) {
       .nav-toggle {
         display: flex;
         position: relative;
       }
 
-      /* Drawer Menu Full Screen */
       .nav-links {
         position: fixed;
         top: 0;
@@ -73,7 +69,6 @@
         letter-spacing: 1px;
       }
 
-      /* Munculkan menu ketika class .nav-open aktif */
       .navbar.nav-open .nav-links {
         right: 0;
       }
@@ -91,7 +86,6 @@
     <li><a href="index.html#keahlian">Keahlian</a></li>
     <li><a href="index.html#kontak">Kontak</a></li>
   </ul>
-  <!-- Tombol Hamburger -->
   <button class="nav-toggle" aria-label="Buka menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -116,20 +110,17 @@
 </footer>
 
 <script>
-// Efek Transparansi Navbar saat scroll
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
   navbar.style.background = window.scrollY > 60 ? 'rgba(255,255,255,0.92)' : 'rgba(249,245,239,0.80)';
 });
 
-// LOGIKA HAMBURGER MENU
 const navToggle = document.querySelector('.nav-toggle');
 navToggle.addEventListener('click', () => {
   const isOpen = navbar.classList.toggle('nav-open');
   navToggle.setAttribute('aria-expanded', isOpen);
 });
 
-// Tutup menu otomatis setelah klik link menu
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => {
     navbar.classList.remove('nav-open');
